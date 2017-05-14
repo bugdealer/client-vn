@@ -209,6 +209,11 @@ public class UpdateHandler implements Runnable {
 			List<TerminationPoint> terminationPoints = new ArrayList<TerminationPoint>();
 			JSONObject resource = DpArray.getJSONObject(i);
 			temp.setNodeId(resource.getString("id"));
+			temp.setDescription(resource.getString("flow-node-inventory:description"));
+			temp.setHardware(resource.getString("flow-node-inventory:hardware"));
+			temp.setManufacturer(resource.getString("flow-node-inventory:manufacturer"));
+			temp.setSoftware(resource.getString("flow-node-inventory:software"));
+			temp.setSerialNumber(resource.getString("flow-node-inventory:serial-number"));
 			temp.setMaxTables(resource.getJSONObject("flow-node-inventory:switch-features").getInt("max_tables"));
 			
 			tpArray = DpArray.getJSONObject(i).getJSONArray("node-connector");
